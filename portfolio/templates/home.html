@@ -1,0 +1,58 @@
+{% extends 'layout.html'%}
+
+{% block content %}
+{% load static %}
+<header class="row">
+    <div class="col-md-4">
+        <img src="{% static 'resources/avatar.png' %}" alt="">
+    </div>
+    <div class="col-md-8">
+        <h1>Im <strong>JackAndrewG</strong></h1>
+        <h3>Im a web developer</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis accusamus corporis velit eligendi labore eius
+            voluptates, molestiae, doloribus facere pariatur animi repudiandae ea officiis? Placeat exercitationem eos
+            minus? Architecto quas aperiam officia et nam reiciendis modi officiis quasi neque eaque ea tenetur cumque
+            error dolorum iste magni vel, quam id eligendi molestiae saepe accusamus. Nam ipsum obcaecati cum sint,
+            exercitationem eveniet sed, aliquam assumenda delectus facilis et quisquam a impedit repudiandae quos natus
+            dolorum molestiae soluta recusandae repellendus. Blanditiis cumque dignissimos itaque nulla nemo eos,
+            architecto quaerat necessitatibus! Voluptatibus commodi harum dicta optio qui libero, ipsa enim dolorum
+            tempora dolore esse? Consectetur, dolore. Dolor mollitia tempore aliquam? Assumenda itaque esse a ipsa
+            nostrum, est odit corrupti autem alias tenetur nesciunt consectetur repudiandae veritatis. Non deserunt iure
+            consectetur! Voluptas veniam aspernatur enim nesciunt quaerat illum pariatur vel voluptatem cupiditate
+            distinctio quo dolore, accusantium dicta architecto dolorem explicabo repellendus eaque eligendi! Odit minus
+            quisquam dolore architecto eius praesentium ratione, quis hic at dolorem velit</p>
+        <a href="{% static 'resources/my_cv.pdf' %}" class="btn btn-primary btn-lg my-3 "> Descargar CV</a>
+    </div>
+</header>
+
+<div class="row my-4 text-center">
+    <h4>Mis Proyectos</h4>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, non quam enim assumenda voluptate quae aut hic ad
+        nisi, fugiat nihil dolorum in eum dicta iste ipsa? Amet reiciendis excepturi impedit. Voluptatem deserunt libero
+        minima provident ipsum dolorum, delectus quo id temporibus eaque vero nihil omnis eos quas voluptatum earum.</p>
+    {% for project in projects %}
+    <div class="col-md-4 p-4">
+        <div class="card mb-3 card-project">
+            <div class="card-header">
+                Proyecto
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    {{ project.title }}
+                </h5>
+                <p class="card-text">
+                    {{ project.description }}
+                </p>
+                <img src="{{project.image.url}}" alt="{{project.title}}" class="img-fluid mb-4 rounded-0">
+
+                {% if project.url %}
+                <a href="{{project.url}}" class="btn btn-secondary btn-sm" target="_blank">Ver Proyecto</a>
+                {% endif%}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}
